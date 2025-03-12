@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:41:54 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/03/07 15:20:43 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/03/12 17:55:29 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iostream>
 # include <string>
 # include <cstdlib>
+# include <cctype>
 
 class PhoneBook{
 	

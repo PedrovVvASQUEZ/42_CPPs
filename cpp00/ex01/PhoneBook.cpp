@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:59 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/03/07 17:57:51 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/03/12 17:55:35 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,49 @@ void	PhoneBook::addContact(const Contact &new_contact)
 bool	PhoneBook::searchContact(void) const
 {
 	std::string	input;
-	bool		isdigit;
+	bool		is_digit;
+	int			index;
 
-	isdigit = true;
+	is_digit = true;
 	for (int i = 0; i < list_size; i++)
-		list[i].display_header(i + 1);
+		list[i].display_format(i + 1);
 	std::cout << "Enter the index of the wanted contact: ";
-	std::cin >> input;
+	std::getline(std::cin, input);
 	std::cout << "You entered index: "<< input << std::endl;
-	if (!std::cin || input.length() > 512)
+	if (!std::cin)
 	{
-		std::cout << "It seems an error as occured. Please try again." << std::endl;
-		return (false);
+		if (std::cin.eof())
+		{
+			std::cin.clear();
+			std::cout << "^D\n";
+			return (false);
+		}
 	}
 	for (std::string::size_type i = 0; i < input.length(); i++)
 	{
-		if ()
+		if (!std::isdigit(input[i]))
+		{
+			is_digit = false;
+			return (true);
+		}
 	}
+	if (is_digit)
+	{
+		index = std::atoi(input.c_str());
+		if (index < 1 || index > list_size)
+		{
+			std::cout << "Invalid index" << std::endl;
+			return (true);
+		}
+		else
+		{
+			list[index - 1].display_contact();
+			return (true);
+		}
+	}
+	else
+		std::cout << "Invalid index" << std::endl;
+	std::cin.clear();
+	std::cin.ignore(10000, '\n');
+	return (true);
 }
