@@ -11,20 +11,19 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include "Contact.hpp"
 
 PhoneBook::PhoneBook(void) : list_size(0), oldest_index(0)
 {
-	std::cout << "constructor called" << std::endl;
 	return ;
 }
 
 PhoneBook::~PhoneBook(void)
 {
-	std::cout << "destructor called" << std::endl;
 	return ;
 }
 
-void	PhoneBook::addContact(const Contact &new_contact)
+void	PhoneBook::add_contact(const Contact &new_contact)
 {
 	list[oldest_index] = new_contact;
 	oldest_index = (oldest_index + 1) % 8;
@@ -32,7 +31,7 @@ void	PhoneBook::addContact(const Contact &new_contact)
 		list_size++;
 }
 
-bool	PhoneBook::searchContact(void) const
+bool	PhoneBook::search_contact(void) const
 {
 	std::string	input;
 	bool		is_digit;

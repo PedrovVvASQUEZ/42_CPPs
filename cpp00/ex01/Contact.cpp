@@ -20,7 +20,7 @@ Contact::Contact(void)
 
 Contact::~Contact(void)
 {
-	std::cout << "destructor called" << std :: endl;
+	std::cout << "destructor called" << std::endl;
 	return ;
 }
 
@@ -31,9 +31,9 @@ std::string	itos(int value)
 	return (num_in_str_format.str());
 }
 
-void	Contact::set_contact(const std::string &fname, std::string &lname,
-					std::string &nname, std::string &phnb,
-					std::string &ds)
+void	Contact::set_contact(const std::string &fname, const std::string &lname,
+					const std::string &nname, const std::string &phnb,
+					const std::string &ds)
 {
 	firstname = fname;
 	lastname = lname;

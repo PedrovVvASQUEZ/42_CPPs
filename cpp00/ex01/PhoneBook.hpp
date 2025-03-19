@@ -23,8 +23,8 @@ class PhoneBook{
 	
 public:
 
-	void	addContact(const Contact &new_contact);
-	bool	searchContact(void) const;
+	void	add_contact(const Contact &new_contact);
+	bool	search_contact(void) const;
 	PhoneBook(void);
 	~PhoneBook(void);
 

@@ -22,9 +22,9 @@ class Contact{
 	
 public:
 
-	void		set_contact(const std::string &fname, std::string &lname,
-							std::string &nname, std::string &phnb,
-							std::string &ds);
+	void		set_contact(const std::string &fname, const std::string &lname,
+							const std::string &nname, const std::string &phnb,
+							const std::string &ds);
 	void		display_contact(void) const;
 	void		display_format(int index) const;
 	std::string format_column(const std::string &str) const;
@@ -34,11 +34,11 @@ public:
 
 private:
 
-	std::string	firstname;
-	std::string	lastname;
-	std::string	nickname;
-	std::string	phone_nb;
-	std::string	darkest_secret;
+	const std::string	firstname;
+	const std::string	lastname;
+	const std::string	nickname;
+	const std::string	phone_nb;
+	const std::string	darkest_secret;
 };
 
 #endif
