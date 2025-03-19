@@ -6,21 +6,20 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:54:06 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/03/12 17:19:40 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/03/19 15:23:25 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-Contact::Contact(void)
+Contact::Contact(void) : firstname(""), lastname(""), nickname(""),
+						phone_nb(""), darkest_secret("")
 {
-	std::cout << "constructor called" << std::endl;
 	return ;
 }
 
 Contact::~Contact(void)
 {
-	std::cout << "destructor called" << std::endl;
 	return ;
 }
 

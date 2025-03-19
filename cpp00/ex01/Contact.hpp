@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:48:16 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/03/12 17:55:14 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/03/19 15:19:50 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ public:
 
 private:
 
-	const std::string	firstname;
-	const std::string	lastname;
-	const std::string	nickname;
-	const std::string	phone_nb;
-	const std::string	darkest_secret;
+	std::string	firstname;
+	std::string	lastname;
+	std::string	nickname;
+	std::string	phone_nb;
+	std::string	darkest_secret;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:30:44 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/03/14 15:20:45 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:01:28 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ bool	contains_digit(const std::string &str)
 
 bool	isfullnum(const std::string &str)
 {
+	if (str.empty())
+		return (false);
 	for (std::string::size_type i = 0; i < str.length(); i++)
 	{
 		if (!std::isdigit(str[i]) && str[i] != '-' && str[i] != ' ')
@@ -42,30 +44,24 @@ bool	isfullnum(const std::string &str)
 	return (true);
 }
 
-// bool ew(const std::string &str)
-// {
-// 	size_t	space_nb;
-
-// 	space_nb = 0;
-// 	if (str.empty())
-// 		return (false);
-// 	for (size_t i = 0; i < str.length(); i++)
-// 		if (std::isspace(str[i]))
-// 			space_nb++;
-// 	if (space_nb != str.length())
-// 		return (true);
-// 	else
-// 		return (false);
-// }
-
 bool	only_spaces_emp(const std::string &str)
 {
 	if (str.empty())
-		return (false);
+		return (true);
 	return (std::all_of(str.begin(), str.end(), [](unsigned char c)
 		{
 			return (std::isspace(c));
 		}));
+}
+
+bool	isValidName(const std::string &str)
+{
+	return (!only_spaces_emp(str) && !contains_digit(str));
+}
+
+bool	isValidPhoneNumber(const std::string &str)
+{
+	return (!only_spaces_emp(str) && isfullnum(str));
 }
 
 std::string	trim_spaces(const std::string &str)
@@ -107,20 +103,16 @@ std::string	one_space_rule(const std::string &str)
 
 bool	boss_getline(std::string &str)
 {
-	std::getline(std::cin, str);
-	if (!std::cin)
+	if (!std::getline(std::cin, str))
 	{
 		if (std::cin.eof())
 		{
-			std::cin.clear();
 			std::cout << "^D";
 			return (false);
 		}
-		else
-		{
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
-		}
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		return (false);
 	}
 	str = trim_spaces(str);
 	str = one_space_rule(str);
@@ -129,46 +121,36 @@ bool	boss_getline(std::string &str)
 
 int	addContact(PhoneBook &phonebook)
 {
-	Contact	contact;
-	std::string input[5];
+	Contact		contact;
+	std::string	input[5];
 
 	if (std::cin.eof())
 		return (1);
 	std::cout << "First name : ";
-	if (boss_getline(input[0]) == false)
+	if (!boss_getline(input[0]) || !isValidName(input[0]))
 		return (1);
 	std::cout << "Last name : ";
-	if (boss_getline(input[1]) == false)
+	if (!boss_getline(input[1]) || !isValidName(input[1]))
 		return (1);
 	std::cout << "Nick name : ";
-	if (boss_getline(input[2]) == false)
+	if (!boss_getline(input[2]) || only_spaces_emp(input[2]))
 		return (1);
 	std::cout << "Phone number : ";
-	if (boss_getline(input[3]) == false)
+	if (!boss_getline(input[3]) || !isValidPhoneNumber(input[3]))
 		return (1);
-	if (isfullnum(input[3]) == false)
-		return (-1);
 	std::cout << "Darkest secret : ";
-	if (boss_getline(input[4]) == false)
+	if (!boss_getline(input[4]) || only_spaces_emp(input[4]))
 		return (1);
-	if (only_spaces_emp(input[0]) && only_spaces_emp(input[1]) &&
-		only_spaces_emp(input[2]) && only_spaces_emp(input[3]) &&
-		only_spaces_emp(input[4]))
-	{
-		contact.set_contact(input[0], input[1], input[2], input[3], input[4]);
-		phonebook.add_contact(contact);
-	}
-	else
-	{
-		std::cout << "All fields must be filled with alphanumeric caracters." << std::endl;
-		return (-1);
-	}
+
+	contact.set_contact(input[0], input[1], input[2], input[3], input[4]);
+	phonebook.add_contact(contact);
 	return (0);
 }
 
-bool handle_input_error(void)
+bool	handle_input_error(void)
 {
-	if (!std::cin) {
+	if (!std::cin)
+	{
 		if (std::cin.eof())
 		{
 			std::cin.clear();
@@ -194,27 +176,28 @@ int	main(void)
 	while (true)
 	{
 		std::cout << "Choose an action : ADD | SEARCH | EXIT" << std::endl;
-		std::getline(std::cin, command);
-		if (handle_input_error() == true)
-			break ;
+		if (!std::getline(std::cin, command) || handle_input_error())
+			break;
 		if (command == "ADD")
 		{
 			result = addContact(phonebook);
 			if (result == 1)
 			{
-				std::cin.clear();
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-				return (0);
+				if (std::cin.eof())
+					return (0);
+				std::cout << "Failed to add contact. Please try again." << std::endl;
 			}
 		}
 		else if (command == "SEARCH")
 		{
 			continue_program = phonebook.search_contact();
-			if (continue_program == false)
+			if (!continue_program)
 				return (0);
 		}
 		else if (command == "EXIT")
-			break ;
+			break;
+		else
+			std::cout << "Invalid command. Please try again." << std::endl;
 	}
 	return (0);
 }
