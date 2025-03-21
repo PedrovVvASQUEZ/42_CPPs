@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:48:16 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/03/19 15:19:50 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:55:19 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <iomanip>
 
 class Contact{
-	
+
 public:
 
 	void		set_contact(const std::string &fname, const std::string &lname,
