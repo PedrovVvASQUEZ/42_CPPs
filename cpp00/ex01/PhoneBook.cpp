@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:53:59 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/03/12 17:55:35 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/03/25 16:47:41 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,10 @@ bool	PhoneBook::search_contact(void) const
 	is_digit = true;
 	for (int i = 0; i < list_size; i++)
 		list[i].display_format(i + 1);
-	std::cout << "Enter the index of the wanted contact: ";
+	std::cout << std::endl << "Enter the index of the wanted contact: ";
 	std::getline(std::cin, input);
-	std::cout << "You entered index: "<< input << std::endl;
+	std::cout << std::endl << "You entered index: "
+			<< input << std::endl << std::endl;
 	if (!std::cin)
 	{
 		if (std::cin.eof())

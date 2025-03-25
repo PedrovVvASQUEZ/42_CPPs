@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 17:54:06 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/03/19 15:23:25 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/03/25 15:40:55 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ void	Contact::display_contact(void) const
 			<< "Last name: " << lastname << std::endl
 			<< "Nick name: " << nickname << std::endl
 			<< "Phone number: " << phone_nb << std::endl
-			<< "Darkest secret: " << darkest_secret << std::endl;
+			<< "Darkest secret: " << darkest_secret << std::endl
+			<< std::endl;
 }
