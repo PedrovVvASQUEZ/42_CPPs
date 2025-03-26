@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 17:08:31 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/03/25 18:02:22 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/03/26 14:40:41 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	ZOMBIE_HPP
+#ifndef ZOMBIE_HPP
 # define ZOMBIE_HPP
 
 # include <iostream>

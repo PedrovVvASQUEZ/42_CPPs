@@ -20,5 +20,15 @@ int	main(void)
 	std::string &ref = str;
 
 	str = "HI THIS IS BRAIN";
-	
+	ptr = &str;
+	std::cout << "======= Adresses =======" << std::endl;
+	std::cout << "string adress: " << &str << std::endl;
+	std::cout << "pointer adress: " << ptr << std::endl;
+	std::cout << "reference adress: " << &ref << std::endl;
+	std::cout << std::endl << "======= Values =======" << std::endl;
+	std::cout << "value of the string: " << str << std::endl;
+	std::cout << "value of the pointer: " << *ptr << std::endl;
+	std::cout << "value of the reference: " << ref << std::endl;
+
+	return (0);
 }
