@@ -6,15 +6,15 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 17:03:44 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/04/04 15:23:48 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/08 22:03:59 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_FPP
 
-#include <iostream>
-#include <cmath>
+# include <iostream>
+# include <cmath>
 
 class	Fixed{
 

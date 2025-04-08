@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 15:35:58 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/08 17:37:10 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/08 22:51:58 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,8 @@ Point::~Point(void)
 
 Point	&Point::operator=(const Point &rhs)
 {
-	if (this != &rhs)
-	{
-		this->_x = rhs._x;
-		this->_y = rhs._y;
-	}
+	(void)rhs;
+
 	return (*this);
 }
 
