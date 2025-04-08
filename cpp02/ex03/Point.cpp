@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 15:35:58 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/08 00:31:19 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/08 17:37:10 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,20 @@ Fixed	Point::getY(void) const
 	return (this->_y);
 }
 
+float	Point::vectorialProduct(const Point &point, const Point &a, const Point &b)
+{
+	Fixed	res;
+
+	res = ((point.getX() - b.getX()) * (a.getY() - b.getY()))
+			- ((a.getX() - b.getX()) * (point.getY() - b.getY()));
+	return (res.toFloat());
+}
+
 //======================== Out Class Funtions =====================//
 
 
 std::ostream	&operator<<(std::ostream &o, const Point  &rhs)
 {
-	o << "coordinate: (" << rhs.getX() << ", " << rhs.getY() << ")" << std::endl;
+	o << ": (" << rhs.getX() << ", " << rhs.getY() << ")" << std::endl;
 	return (o);
 }
