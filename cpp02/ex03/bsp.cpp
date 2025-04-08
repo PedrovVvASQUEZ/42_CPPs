@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   bsp.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/03 16:50:34 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/04/04 14:23:22 by codespace        ###   ########.fr       */
+/*   Created: 2025/04/07 22:47:04 by codespace         #+#    #+#             */
+/*   Updated: 2025/04/07 23:04:28 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
 
-int	main(void)
+bool	bsp(Point const a, Point const b, Point c, Point const point)
 {
-	Fixed a;
-	Fixed const b(Fixed( 5.05f ) * Fixed( 2 ));
-	
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
-
-	return (0);
+	if ()
 }
