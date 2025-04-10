@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 21:52:14 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/10 18:13:04 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/04/10 18:38:18 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 
-private:
+protected:
 
 	std::string	_name;
 	int			_hit_points;

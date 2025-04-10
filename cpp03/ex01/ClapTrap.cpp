@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 21:53:22 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/10 18:12:34 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/04/10 17:40:44 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 //==================== Contructors N Destructor ==================//
 
-ClapTrap::ClapTrap(void) : _name("ClapTrap"), _hit_points(10), _energy_points(10), _attack_damage(0)
+ClapTrap::ClapTrap(void)
 {
 	std::cout << "Default constructor called" << std::endl;
 
