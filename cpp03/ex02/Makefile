@@ -6,16 +6,17 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/05 15:25:57 by pgrellie          #+#    #+#              #
-#    Updated: 2025/04/16 17:56:44 by codespace        ###   ########.fr        #
+#    Updated: 2025/04/16 18:15:17 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ScavTrap
+NAME = FragTrap
 COMP = c++
 FLAGS = -std=c++98 -Wall -Werror -Wextra
 RM = rm -rf
 
 SRCS = ScavTrap.cpp\
+		FragTrap.cpp\
 		ClapTrap.cpp\
 		main.cpp\
 

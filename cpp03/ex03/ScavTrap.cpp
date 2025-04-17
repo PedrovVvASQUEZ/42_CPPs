@@ -6,11 +6,12 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:26:58 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/04/16 18:08:01 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/16 19:15:04 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
 
 //==================== Contructors N Destructor ==================//
 

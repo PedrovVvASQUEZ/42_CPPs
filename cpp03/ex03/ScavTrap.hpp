@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:26:56 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/04/16 18:03:28 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/16 19:57:00 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "ClapTrap.hpp"
 
-class	ScavTrap : public ClapTrap{
+class	ScavTrap : virtual public ClapTrap{
 
 public:
 
@@ -25,7 +25,7 @@ public:
 	~ScavTrap(void);
 
 	ScavTrap	&operator=(const ScavTrap &rhs);
-
+	
 	void	guardGate(void) const;
 };
 
