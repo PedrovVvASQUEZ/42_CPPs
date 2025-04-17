@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:26:58 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/04/16 19:15:04 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/17 22:59:40 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,28 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &rhs)
 void	ScavTrap::guardGate(void) const
 {
 	std::cout << this->_name << " : Holds the door like Hodor" << std::endl;
+	return ;
+}
+
+void	ScavTrap::attack(const std::string &target)
+{
+	if (this->_energy_points > 0 && this->_hit_points > 0)
+	{
+		std::cout << "ScavTrap: " << this->_name << " attacks "
+				<< target << " causing " << this->_attack_damage << " points of damage!"
+				<< std::endl;
+		this->_energy_points -= 1;
+	}
+	else
+	{
+		if (this->_energy_points <= 0 && this->_hit_points > 0)
+		{
+			std::cout << "Couldn't attack! " << this->_name
+				<< " has " << this->_energy_points << " energy points" << std::endl;
+		}
+		else
+			std::cout << "Couldn't attack! " << this->_name
+				<< " is dead" << std::endl;
+	}
 	return ;
 }

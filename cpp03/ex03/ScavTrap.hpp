@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/10 17:26:56 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/04/16 19:57:00 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/17 18:37:26 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ public:
 	ScavTrap	&operator=(const ScavTrap &rhs);
 	
 	void	guardGate(void) const;
+	void	attack(const std::string &target);
 };
 
 #endif
