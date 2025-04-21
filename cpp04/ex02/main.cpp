@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 23:08:35 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/21 14:54:32 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/21 16:03:24 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@
 
 int main()
 {
+	// AAnimal	chien("leopard");
+	// AAnimal	*aah = new AAnimal("leopard");
 
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
 	delete j;
 	delete i;
 
@@ -38,7 +40,7 @@ int main()
 
 
 	srand((unsigned int)time(NULL));
-	Animal	*tab[8];
+	AAnimal	*tab[8];
 
 	for (int i = 0; i < 4; i++)
 	{
