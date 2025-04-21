@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 15:24:43 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/18 16:14:00 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/18 23:50:18 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ Cat	&Cat::operator=(const Cat &rhs)
 
 void	Cat::makeSound(void) const
 {
-	std::cout << "Miaooou" << std::endl;
+	std::cout << "/// Miaooou ---" << std::endl;
 	return ;
 }

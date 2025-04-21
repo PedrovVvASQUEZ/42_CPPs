@@ -1,64 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 15:24:43 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/19 00:01:44 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/20 22:42:12 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
+#include "Cat.hpp"
 
 //==================== Contructors N Destructor ===================//
 
-WrongAnimal::WrongAnimal(void) : _type("Unknown")
+Cat::Cat(void) : Animal("Cat"), _cat_brain(new Brain())
 {
-	std::cout << "WrongANIMAL Default construtor" << std::endl;
+	std::cout << "CAT Default constructor" << std::endl;
 	return ;
 }
 
-WrongAnimal::WrongAnimal(const std::string &type) : _type(type)
+Cat::Cat(const Cat &rhs) : Animal("Cat"), _cat_brain(new Brain(*(rhs._cat_brain)))
 {
-	std::cout << "WrongANIMAL Setting constructor" << std::endl;
+	std::cout << "CAT Copy constructor" << std::endl;
 	return ;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &rhs)
+Cat::~Cat(void)
 {
-	std::cout << "WrongANIMAL Copy constructor" << std::endl;
-	*this = rhs;
-	return ;
-}
-
-WrongAnimal::~WrongAnimal(void)
-{
-	std::cout << "WrongANIMAL Destructor" << std::endl;
+	std::cout << "CAT Destructor" << std::endl;
+	delete (_cat_brain);
 	return ;
 }
 
 //=============== Operators Overload Member Functions =============//
 
-WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &rhs)
+Cat	&Cat::operator=(const Cat &rhs)
 {
 	if (this != &rhs)
 	{
 		this->_type = rhs._type;
+		*(this->_cat_brain) = *(rhs._cat_brain);
 	}
 	return (*this);
 }
 
 //======================= Member functions ========================//
 
-void	WrongAnimal::makeSound(void) const
+void	Cat::makeSound(void) const
 {
-	std::cout << "PrrPrrPrrPrrPrr..." << std::endl;
+	std::cout << "/// Miaooou ---" << std::endl;
 	return ;
 }
 
-std::string	WrongAnimal::getType(void) const
+void	Cat::display_cat_ideas(void) const
 {
-	return (this->_type);
+	this->_cat_brain->display_ideas();
+	return ;
 }

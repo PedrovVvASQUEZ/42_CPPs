@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/18 15:21:23 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/20 17:06:55 by codespace        ###   ########.fr       */
+/*   Created: 2025/04/18 14:26:15 by codespace         #+#    #+#             */
+/*   Updated: 2025/04/19 01:11:21 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGCAT_HPP
-# define WRONGCAT_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-# include "WrongAnimal.hpp"
+# include <iostream>
+# include <string>
 
-class	WrongCat : public WrongAnimal{
+class	WrongAnimal{
 
 public:
 
-	WrongCat(void);
-	WrongCat(const WrongCat &rhs);
-	virtual ~WrongCat(void);
+	WrongAnimal(void);
+	WrongAnimal(const std::string &type);
+	WrongAnimal(const WrongAnimal &rhs);
+	virtual ~WrongAnimal(void);
 	
-	WrongCat	&operator=(const WrongCat &rhs);
-	
+	WrongAnimal	&operator=(const WrongAnimal &rhs);
+
 	void	makeSound(void) const;
+	std::string		getType(void) const;
+
+protected:
+
+	std::string	_type;
 };
 
 #endif

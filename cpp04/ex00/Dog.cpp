@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 15:24:43 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/18 16:13:48 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/18 23:50:27 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ Dog	&Dog::operator=(const Dog &rhs)
 
 void	Dog::makeSound(void) const
 {
-	std::cout << "Fucking Barks" << std::endl;
+	std::cout << "/// Fucking Barks ---" << std::endl;
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 23:08:35 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/20 17:16:07 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/21 00:12:02 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,38 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-int main(void)
+int main()
 {
-	const Animal* meta = new Animal();
+
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	std::cout << "j type is: " << j->getType() << std::endl;
-	std::cout << "i type is: " << i->getType() << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
+	delete j;
+	delete i;
 
-	delete (meta);
-	delete (j);
-	delete (i);
+	Dog	dog1;
+	Dog dog2;
+	Cat	cat1;
+	Cat cat2(cat1);
+
+	dog1.display_dog_ideas();
+	dog2.display_dog_ideas();
+	dog1 = dog2;
+	dog1.display_dog_ideas();
+
+	cat1.display_cat_ideas();
+	cat2.display_cat_ideas();
+
+
+	srand((unsigned int)time(NULL));
+	Animal	*tab[8];
+
+	for (int i = 0; i < 4; i++)
+	{
+		tab[i] = new Dog();
+		tab[4 + i] = new Cat();
+	}
+	for (int i = 0; i < 8; i++)
+		delete tab[i];
 	
-	const WrongAnimal	*wrongmeta = new WrongAnimal();
-	const WrongAnimal	*wrongcat = new WrongCat();
-
-	std::cout << "wrongmeta type is: " << wrongmeta->getType() << std::endl;
-	std::cout << "wrongcat type is: " << wrongcat->getType() << std::endl;
-	wrongmeta->makeSound();
-	wrongcat->makeSound();
-
-	delete (wrongmeta);
-	delete (wrongcat);
-	
-	return (0);
+return (0);
 }
