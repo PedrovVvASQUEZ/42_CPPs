@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:45:55 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/21 18:00:26 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/22 20:26:48 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ AMateria::AMateria(const std::string &type) : _type(type)
 AMateria::AMateria(const AMateria &rhs)
 {
 	*this = rhs;
+	return ;
+}
+
+AMateria::~AMateria(void)
+{
 	return ;
 }
 

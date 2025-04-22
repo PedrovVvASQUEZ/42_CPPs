@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 16:42:24 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/22 20:47:40 by codespace        ###   ########.fr       */
+/*   Created: 2025/04/22 14:00:53 by codespace         #+#    #+#             */
+/*   Updated: 2025/04/22 14:28:07 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-# include "ICharacter.hpp"
-# include <string>
-# include <iostream>
+# include "IMateriaSource.hpp"
 
-class ICharacter;
+class	MateriaSource : public IMateriaSource{
 
-class AMateria
-{
 public:
 
-	AMateria(void);
-	AMateria(const std::string &type);
-	AMateria(const AMateria &rhs);
-	virtual ~AMateria(void);
+	MateriaSource(void);
+	MateriaSource(const MateriaSource &rhs);
+	virtual ~MateriaSource(void);
 
-	AMateria	&operator=(const AMateria &rhs);
+	MateriaSource	&operator=(const MateriaSource &rhs);
 
-	const std::string	&getType(void) const;
-	virtual AMateria	*clone(void) const = 0;
-	virtual void		use(ICharacter &target);
+	void		learnMateria(AMateria *mat);
+	AMateria	*createMateria(const std::string &type);
 
 protected:
 
-	std::string	_type;
+	static const int	_mat_nb = 4;
+	AMateria			*_mat[_mat_nb];
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 23:20:37 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/22 00:50:52 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/22 13:30:38 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
 	virtual const std::string	&getName(void) const;
 	virtual void				equip(AMateria *type);
 	virtual void				unequip(int index);
-	virtual void				use(int index, ICharacter &target);
+	virtual void				use(int idx, ICharacter &target);
 
 protected:
 
