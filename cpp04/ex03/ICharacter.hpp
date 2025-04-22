@@ -6,12 +6,16 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:43:59 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/21 18:05:25 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/22 00:13:40 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
+
+# include "AMateria.hpp"
+
+// class AMateria;
 
 class ICharacter{
 

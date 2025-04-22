@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 18:11:17 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/21 18:24:36 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/21 23:19:28 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ Ice		*Ice::clone(void) const
 
 void	Ice::use(ICharacter &target)
 {
-	std::cout << "* shoots an ice bolt at " << target->getName()
+	std::cout << "* shoots an ice bolt at " << target.getName()
 				<< " *" << std::endl;
 	return ;
 }
