@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 23:08:35 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/21 16:03:24 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/05 16:54:52 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main()
 {
 	// AAnimal	chien("leopard");
 	// AAnimal	*aah = new AAnimal("leopard");
+	srand((unsigned int)time(NULL));
 
 	const AAnimal* j = new Dog();
 	const AAnimal* i = new Cat();
@@ -30,16 +31,21 @@ int main()
 	Cat	cat1;
 	Cat cat2(cat1);
 
+	std::cout << std::endl;
 	dog1.display_dog_ideas();
+	std::cout << std::endl;
 	dog2.display_dog_ideas();
+	std::cout << std::endl;
 	dog1 = dog2;
 	dog1.display_dog_ideas();
-
+	std::cout << std::endl;
 	cat1.display_cat_ideas();
+	std::cout << std::endl;
 	cat2.display_cat_ideas();
+	std::cout << std::endl;
 
-
-	srand((unsigned int)time(NULL));
+	std::cout << "|||| Here is the array ||||" << std::endl << std::endl;
+	
 	AAnimal	*tab[8];
 
 	for (int i = 0; i < 4; i++)

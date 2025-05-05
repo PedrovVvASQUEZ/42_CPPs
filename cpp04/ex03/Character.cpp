@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 18:00:46 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/22 21:08:34 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/05 17:07:42 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,19 +73,19 @@ const std::string	&Character::getName(void) const
 	return (this->_name);
 }
 
-void				Character::equip(AMateria *type)
+void				Character::equip(AMateria *m)
 {
 	for (int i = 0; i < _items_nb; i++)
 	{
 		if (_items[i] == NULL)
 		{
-			_items[i] = type;
-			std::cout << type->getType() << " equiped on slot " << i << std::endl;
+			_items[i] = m;
+			std::cout << m->getType() << " equiped on slot " << i << std::endl;
 			return ;
 		}
 	}
 	std::cout << "Max equipment load: cannot equip item" << std::endl;
-	delete (type);
+	delete (m);
 	return ;
 }
 
@@ -98,7 +98,7 @@ void				Character::unequip(int idx)
 	else if (_items[idx] != NULL)
 	{
 		std::cout << _items[idx]->getType() << "unequiped on " << idx << std::endl;
-		_items[idx] == NULL;
+		_items[idx] = NULL;
 	}
 	return ;
 }

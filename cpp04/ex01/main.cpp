@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 23:08:35 by codespace         #+#    #+#             */
-/*   Updated: 2025/04/21 14:54:32 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/05 16:46:41 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,33 @@
 
 int main()
 {
+	srand((unsigned int)time(NULL));
 
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 	delete j;
 	delete i;
-
+	
 	Dog	dog1;
 	Dog dog2;
 	Cat	cat1;
 	Cat cat2(cat1);
 
+	std::cout << std::endl;
 	dog1.display_dog_ideas();
+	std::cout << std::endl;
 	dog2.display_dog_ideas();
+	std::cout << std::endl;
 	dog1 = dog2;
 	dog1.display_dog_ideas();
-
+	std::cout << std::endl;
 	cat1.display_cat_ideas();
+	std::cout << std::endl;
 	cat2.display_cat_ideas();
+	std::cout << std::endl;
 
+	std::cout << "|||| Here is the array ||||" << std::endl << std::endl;
 
-	srand((unsigned int)time(NULL));
 	Animal	*tab[8];
 
 	for (int i = 0; i < 4; i++)
