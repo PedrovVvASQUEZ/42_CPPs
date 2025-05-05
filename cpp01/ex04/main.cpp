@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:27:47 by codespace         #+#    #+#             */
-/*   Updated: 2025/03/28 15:18:50 by codespace        ###   ########.fr       */
+/*   Updated: 2025/04/23 15:49:56 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,18 @@ void	replaceNwrite(std::ifstream	&fdin, std::ofstream &fdout,
 
 int	main(int ac, char **av)
 {
+	if (ac != 4)
+	{
+		std::cerr << "error: bad arguments" << std::endl;
+		return (1);
+	}
+	
 	std::string 	filename(av[1]);
 	std::string		s1(av[2]);
 	std::string		s2(av[3]);
 	std::ifstream	fdin(filename);
 	std::ofstream	fdout(filename + ".replace");
 
-	if (ac != 4)
-	{
-		std::cerr << "error: bad arguments" << std::endl;
-		return (1);
-	}
 	if (s1.empty() == true)
 	{
 		std::cerr << "error: first string cannot be empty" << std::endl;

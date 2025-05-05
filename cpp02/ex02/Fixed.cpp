@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 17:03:42 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/04/07 18:08:37 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/05 16:36:40 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ Fixed	Fixed::operator/(const Fixed &rhs) const
 
 Fixed	&Fixed::operator--(void)
 {
-	this->_fxn += 1;
+	this->_fxn -= 1;
 	return (*this);
 }
 
