@@ -6,14 +6,17 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 16:33:06 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/05/19 14:19:41 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/19 16:41:27 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
+# include "Form.hpp"
 # include <iostream>
+
+class Form;
 
 class	Bureaucrat{
 
@@ -31,6 +34,7 @@ public:
 
 	void		promotion(void);
 	void		punition(void);
+	void		signForm(Form &rhs) const;
 
 	class	GradeTooHighException : public std::exception{
 

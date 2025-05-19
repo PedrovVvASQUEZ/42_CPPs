@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 16:33:09 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/05/19 16:39:07 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/19 16:40:23 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ Bureaucrat::~Bureaucrat(void)
 }
 
 //=============== Operators Overload Member Functions =============//
+
 
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &rhs)
 {
@@ -87,5 +88,19 @@ void	Bureaucrat::punition(void)
 	else
 		this->_grade += 1;
 	return ;
+}
+
+void	Bureaucrat::signForm(Form &rhs) const
+{
+	try
+	{
+		rhs.beSigned(*this);
+		std::cout << this->_name << " signed " << rhs.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << this->_name << " couldn't sign "
+			<< rhs.getName() << " because" << e.what() << std::endl;
+	}
 }
 

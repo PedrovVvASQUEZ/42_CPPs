@@ -6,16 +6,17 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/05 15:25:57 by pgrellie          #+#    #+#              #
-#    Updated: 2025/05/19 13:33:43 by codespace        ###   ########.fr        #
+#    Updated: 2025/05/19 14:02:06 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+NAME = Magots
 COMP = c++
 FLAGS = -std=c++98 -Wall -Werror -Wextra
 RM = rm -rf
 
 SRCS = Bureaucrat.cpp\
+		Form.cpp\
 		main.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
