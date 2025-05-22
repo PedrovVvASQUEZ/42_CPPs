@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:41:48 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/05/20 17:59:43 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/05/22 18:09:47 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,12 @@ public:
 
 	PresidentialPardonForm	&operator=(const PresidentialPardonForm &rhs);
 
-	virtual	void	beSigned(const Bureaucrat &rhs);
+	void	execute(const Bureaucrat &executor) const;
 
-	
+
 private:
 
 	std::string	_target;
-
 };
 
 
