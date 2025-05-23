@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:41:46 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/05/22 17:48:36 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/23 17:42:41 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,21 @@ public:
 		}
 	};
 
-	class ExecuteNotSigned : public std::exception{
+	class	FormNotSigned : public std::exception{
 
 		public:
 		virtual const char *what() const throw()
 		{
-			return ("The form isn't signed");
+			return ("The form isn't signed.");
+		}
+	};
+
+	class	FileCantOpen : public std::exception{
+
+		public:
+		virtual const char *what() const throw()
+		{
+			return ("The file couldn't open.");
 		}
 	};
 

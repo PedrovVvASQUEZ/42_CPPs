@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 16:33:06 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/05/19 16:41:27 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/23 17:35:34 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ public:
 	void		promotion(void);
 	void		punition(void);
 	void		signForm(Form &rhs) const;
+	void		executeForm(const AForm &rhs) const;
 
 	class	GradeTooHighException : public std::exception{
 

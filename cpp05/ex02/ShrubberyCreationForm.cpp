@@ -3,37 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:36:46 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/05/22 18:11:28 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/23 15:39:13 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 //==================== Contructors N Destructor ===================//
 
 
-PresidentialPardonForm::PresidentialPardonForm(void) :
-	AForm("PresidentialPardonForm", 145, 137), _target("Unknown")
+ShrubberyCreationForm::ShrubberyCreationForm(void) :
+	AForm("ShrubberyCreationForm", 145, 137), _target("Unknown")
 {
 	return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target) :
-	AForm("PresidentialPardonForm", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) :
+	AForm("ShrubberyCreationForm", 145, 137), _target(target)
 {
 	return ;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &rhs) :
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &rhs) :
 	AForm(rhs), _target(rhs._target)
 {
 	return ;
 }
 
-PresidentialPardonForm::~PresidentialPardonForm(void)
+ShrubberyCreationForm::~ShrubberyCreationForm(void)
 {
 	return ;
 }
@@ -41,7 +41,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 //=============== Operators Overload Member Functions =============//
 
 
-PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPardonForm &rhs)
+ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs)
 {
 	if (this != &rhs)
 	{
@@ -52,14 +52,49 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(const PresidentialPard
 
 //======================= Member functions ========================//
 
-void	PresidentialPardonForm::execute(const Bureaucrat &executor) const
+void	ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
 	if (this->getSignature() == false)
-		throw AForm::ExecuteNotSigned();
+		throw AForm::FormNotSigned();
 	else if (this->getExecutionGrade() < executor.getGrade())
 		throw AForm::GradeTooLowException();
 	else
 	{
-		
+		std::ofstream	outf(this->_target + "Shrubberies");
+
+		if (outf.is_open() == false)
+			throw AForm::FileCantOpen();
+		else
+		{	
+			outf << "                                                         ." << std::endl;
+			outf << "                                   .         ;            " << std::endl;
+			outf << "      .              .              ;%     ;;             " << std::endl;
+			outf << "        ,           ,                :;%  %;              " << std::endl;
+			outf << "         :         ;                   :;%;'     .,       " << std::endl;
+			outf << ",.        %;     %;            ;        %;'    ,;         " << std::endl;
+			outf << "  ;       ;%;  %%;        ,     %;    ;%;    ,%'          " << std::endl;
+			outf << "   %;       %;%;      ,  ;       %;  ;%;   ,%;'           " << std::endl;
+			outf << "    ;%;      %;        ;%;        % ;%;  ,%;'             " << std::endl;
+			outf << "     `%;.     ;%;     %;'         `;%%;.%;'               " << std::endl;
+			outf << "      `:;%.    ;%%. %@;        %; ;@%;%'                  " << std::endl;
+			outf << "         `:%;.  :;bd%;          %;@%;'                    " << std::endl;
+			outf << "           `@%:.  :;%.         ;@@%;'                     " << std::endl;
+			outf << "             `@%.  `;@%.      ;@@%;                       " << std::endl;
+			outf << "               `@%%. `@%%    ;@@%;                        " << std::endl;
+			outf << "                 ;@%. :@%%  %@@%;                         " << std::endl;
+			outf << "                   %@bd%%%bd%%:;                          " << std::endl;
+			outf << "                     #@%%%%%:;;                           " << std::endl;
+			outf << "                     %@@%%%::;                            " << std::endl;
+			outf << "                     %@@@%(o);  . '                       " << std::endl;
+			outf << "                     %@@@o%;:(.,'                         " << std::endl;
+			outf << "                 `.. %@@@o%::;                            " << std::endl;
+			outf << "                    `)@@@o%::;                            " << std::endl;
+			outf << "                     %@@(o)::;                            " << std::endl;
+			outf << "                    .%@@@@%::;                            " << std::endl;
+			outf << "                    ;%@@@@%::;.                           " << std::endl;
+			outf << "                   ;%@@@@%%:;;;.                          " << std::endl;
+			outf << "               ...;%@@@@@%%:;;;;,..                       " << std::endl;
+			outf.close();
+		}
 	}
 }

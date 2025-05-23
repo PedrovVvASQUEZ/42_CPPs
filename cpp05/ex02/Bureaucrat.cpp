@@ -6,11 +6,12 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 16:33:09 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/05/20 17:47:57 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/05/23 17:42:18 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 //==================== Contructors N Destructor ===================//
 
@@ -104,3 +105,15 @@ void	Bureaucrat::signForm(Form &rhs) const
 	}
 }
 
+void	Bureaucrat::executeForm(const AForm &rhs) const
+{
+	try
+	{
+		rhs.execute(*this);
+		std::cout << this->_name << " executed " << rhs << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Cannot execute because " << e.what() << std::endl;
+	}
+}

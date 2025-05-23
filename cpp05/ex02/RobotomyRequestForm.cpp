@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:42:00 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/05/22 18:07:37 by codespace        ###   ########.fr       */
+/*   Updated: 2025/05/23 17:02:51 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,14 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(const RobotomyRequestForm &r
 void	RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
 	if (this->getSignature() == false)
-		throw AForm::ExecuteNotSigned();
+		throw AForm::FormNotSigned();
 	else if (this->getExecutionGrade() < executor.getGrade())
 		throw AForm::GradeTooLowException();
 	else
 	{
 		int	robotomized;
 
-		std::cout << "*rizZzzz BzzZz rZz* ";
+		std::cout << " *Brrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr* ";
 		robotomized = rand() % 2;
 		if (robotomized)
 			std::cout << this->_target << " was robotomized" << std::endl;
