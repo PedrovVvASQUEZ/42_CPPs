@@ -6,16 +6,17 @@
 #    By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/05 15:25:57 by pgrellie          #+#    #+#              #
-#    Updated: 2025/05/26 16:00:47 by pgrellie         ###   ########.fr        #
+#    Updated: 2025/05/26 18:13:52 by pgrellie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 2828
+NAME = Intern
 COMP = c++
 FLAGS = -std=c++98 -Wall -Werror -Wextra
 RM = rm -rf
 
 SRCS = Bureaucrat.cpp\
+		Intern.cpp\
 		AForm.cpp\
 		PresidentialPardonForm.cpp\
 		RobotomyRequestForm.cpp\

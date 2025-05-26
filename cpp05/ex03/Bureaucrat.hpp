@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 16:33:06 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/05/26 16:21:34 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/05/26 17:59:43 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ public:
 	class	GradeTooHighException : public std::exception{
 
 		public:
-		const char	*what(void) const throw()
+		virtual const char	*what(void) const throw()
 		{
 			return ("The wanted grade is too HIGH. It must stay between 1 and 150\n");
 		}
@@ -51,7 +51,7 @@ public:
 	class	GradeTooLowException : public std::exception{
 
 		public:
-		const char	*what(void) const throw()
+		virtual const char	*what(void) const throw()
 		{
 			return ("The wanted grade is too LOW. It must stay between 1 and 150\n");
 		}

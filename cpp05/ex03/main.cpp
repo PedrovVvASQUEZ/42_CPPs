@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:42:30 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/05/26 16:37:51 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/05/26 18:11:58 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
 
 int	main(void)
 {
 	srand(time(NULL));
-
+	Intern	loup;
+	
 	std::cout << "|======== Presidential Tests ========|" << std::endl << std::endl;
 	try
 	{
 		Bureaucrat	sss("Sandro", 6);
-		AForm		*ppf = new PresidentialPardonForm("Sandro");
+		AForm	*ppf = loup.makeForm("Presidential", "Sandro");
 
 		std::cout << *ppf << std::endl << std::endl;
 		std::cout << sss << std::endl;
@@ -40,7 +42,7 @@ int	main(void)
 	try
 	{
 		Bureaucrat	kkk("Karim", 136);
-		AForm		*stf = new ShrubberyCreationForm("Karim");
+		AForm		*stf = loup.makeForm("Shrubbery", "Karim");
 		Bureaucrat	stupid_mf("MF", 146);
 
 		std::cout << *stf << std::endl << std::endl;
@@ -59,7 +61,7 @@ int	main(void)
 	try
 	{
 		Bureaucrat	ttt("Thomas", 42);
-		AForm		*rrf = new RobotomyRequestForm("Thomas");
+		AForm		*rrf = loup.makeForm("Robotomy", "Thomas");
 
 		std::cout << *rrf << std::endl << std::endl;
 		std::cout << ttt << std::endl;
