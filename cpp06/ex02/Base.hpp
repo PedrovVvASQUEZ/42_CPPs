@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/02 15:04:50 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/06/03 15:20:34 by pgrellie         ###   ########.fr       */
+/*   Created: 2025/06/03 16:23:56 by pgrellie          #+#    #+#             */
+/*   Updated: 2025/06/03 17:11:50 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
+#ifndef BASE_HPP
+# define BASE_HPP
 
-# include <string>
-# include <iostream>
-# include <cstdint>
+# include "A.hpp"
+# include "B.hpp"
+# include "C.hpp"
 
-struct Data
-{
-	int			value;
-	std::string	str;
-};
-
-class	Serializer{
+class	Base{
 
 public:
 
-	static uintptr_t	serialize(Data *ptr);
-	static Data			*deserialize(uintptr_t raw);
+	virtual	~Base(void);
+	
+	Base	*generate(void);
+	void	identify(Base *p);
+	void	identify(Base &p);
 
 private:
 
-	Serializer(void);
-	Serializer(const Serializer &rhs);
-	~Serializer(void);
-
-	Serializer	&operator=(const Serializer &rhs);
+	Base(void);
+	Base(const Base &rhs);
+	Base	&operator=(const Base &rhs);
 };
 
 #endif
