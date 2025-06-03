@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 16:23:54 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/06/03 17:13:06 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/06/03 18:12:14 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,16 @@ Base::~Base(void)
 //======================= Member functions ========================//
 
 Base	*Base::generate(void)
+{
+	
+}
+
+void	Base::identify(Base *p)
+{
+	
+}
+
+void	Base::identify(Base &p)
 {
 	
 }
