@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 16:33:13 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/06/03 18:11:08 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/06/04 15:23:19 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,6 @@
 
 # include "Base.hpp"
 
-class	B : public Base{
-
-public:
-
-	virtual	~B(void);
-
-private:
-
-	B(void);
-	B(const A &rhs);
-	B	&operator=(const A &rhs);
-};
+class	B : public Base{};
 
 #endif

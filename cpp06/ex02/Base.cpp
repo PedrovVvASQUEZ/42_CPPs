@@ -3,27 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 16:23:54 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/06/03 18:12:14 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/06/04 15:57:19 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
 
 //==================== Contructors N Destructor ===================//
-
-// Base::Base(void)
-// {
-// 	return ;
-// }
-
-// Base::Base(const Base &rhs)
-// {
-// 	(void)rhs;
-// 	return ;	
-// }
 
 Base::~Base(void)
 {
@@ -32,25 +21,57 @@ Base::~Base(void)
 
 //=============== Operators Overload Member Functions =============//
 
-// Base	&Base::operator=(const Base &rhs)
-// {
-// 	(void)rhs;
-// 	return (*this);
-// }
 
 //======================= Member functions ========================//
 
-Base	*Base::generate(void)
+
+//======================== Other functions ========================//
+
+
+Base	*generate(void)
 {
-	
+	int	randomizer;
+
+	randomizer = std::rand() % 3;
+	if (randomizer == 0)
+		return (new A());
+	if (randomizer == 1)
+		return (new B());
+	return (new C());
 }
 
-void	Base::identify(Base *p)
+void	identify(Base *p)
 {
-	
+	if (dynamic_cast<A*>(p))
+		std::cout << "A" << std::endl;
+	else if (dynamic_cast<B*>(p))
+		std::cout << "B" << std::endl;
+	else if (dynamic_cast<C*>(p))
+		std::cout << "C" << std::endl;
+	return ;
 }
 
-void	Base::identify(Base &p)
+void	identify(Base &p)
 {
-	
+	try
+	{
+		(void)dynamic_cast<A&>(p);
+		std::cout << "A" << std::endl;
+		return;
+	}
+	catch (...) {}
+	try
+	{
+		(void)dynamic_cast<B&>(p);
+		std::cout << "B" << std::endl;
+		return;
+	}
+	catch (...) {}
+	try
+	{
+		(void)dynamic_cast<C&>(p);
+		std::cout << "C" << std::endl;
+		return;
+	}
+	catch (...) {}
 }
