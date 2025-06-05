@@ -6,11 +6,14 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 16:23:54 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/06/04 15:57:19 by codespace        ###   ########.fr       */
+/*   Updated: 2025/06/05 13:54:19 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
 //==================== Contructors N Destructor ===================//
 
@@ -42,11 +45,11 @@ Base	*generate(void)
 
 void	identify(Base *p)
 {
-	if (dynamic_cast<A*>(p))
+	if (dynamic_cast<A*>(p) != NULL)
 		std::cout << "A" << std::endl;
-	else if (dynamic_cast<B*>(p))
+	else if (dynamic_cast<B*>(p) != NULL)
 		std::cout << "B" << std::endl;
-	else if (dynamic_cast<C*>(p))
+	else if (dynamic_cast<C*>(p) != NULL)
 		std::cout << "C" << std::endl;
 	return ;
 }
@@ -75,3 +78,4 @@ void	identify(Base &p)
 	}
 	catch (...) {}
 }
+// Here the catch block receive a bad_cast exception if the dynamic cast fails
