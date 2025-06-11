@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 15:52:36 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/06/10 18:51:31 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/06/11 15:44:27 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,19 @@ void	displayElement(const J &element)
 	std::cout << element << " | ";
 }
 
-template <typename J, size_t N>
-size_t	getArraysize(J (&)[N])
+template <typename ArrayType, size_t Size>
+size_t	getArraysize(ArrayType (&array)[Size])
 {
-	return (N);
+	return (Size);
 }
 
 template <typename J, typename F>
 void	iter(J *array, size_t length, F func)
 {
+	if (length == 0 || array == NULL)
+		std::cout << "Array is empty nothing to be done" << std::endl;
 	for (int i = 0; i < length; i++)
 		func(array[i]); 
 }
-
 
 #endif

@@ -6,11 +6,11 @@
 #    By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/05 15:25:57 by pgrellie          #+#    #+#              #
-#    Updated: 2025/06/10 15:43:54 by pgrellie         ###   ########.fr        #
+#    Updated: 2025/06/11 15:47:23 by pgrellie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = whatever
+NAME = Array
 COMP = c++
 FLAGS = -std=c++98 -Wall -Werror -Wextra
 RM = rm -rf
