@@ -6,12 +6,15 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/11 15:47:44 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/06/11 18:23:04 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/06/12 16:09:50 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
+
+# include <stdexcept>
+# include <cstddef>
 
 template <typename T>
 class	Array{
@@ -43,7 +46,21 @@ public:
 				this->_array[i] = rhs._array[i]; 
 			}
 		}
-		return (*this)
+		return (*this);
+	}
+
+	T	&operator[](unsigned int i)
+	{
+		if (i >= this->_size)
+			throw std::out_of_range("Index out of bounds");
+		return (this->_array[i]);
+	}
+
+	const T	&operator[](unsigned int i) const
+	{
+		if (i >= _size)
+			throw std::out_of_range("Index out of bounds");
+		return (this->_array[i]);
 	}
 
 	unsigned int	size(void) const
@@ -56,6 +73,8 @@ private:
 	T				*_array;
 	unsigned int	_size;
 };
+
+
 
 
 #endif
