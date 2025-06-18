@@ -6,16 +6,17 @@
 #    By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/05 15:25:57 by pgrellie          #+#    #+#              #
-#    Updated: 2025/06/12 17:50:51 by pgrellie         ###   ########.fr        #
+#    Updated: 2025/06/18 17:15:49 by pgrellie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = easyfind
+NAME = Span
 COMP = c++
 FLAGS = -std=c++98 -Wall -Werror -Wextra
 RM = rm -rf
 
-SRCS =	main.cpp\
+SRCS =	Span.cpp\
+		main.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 

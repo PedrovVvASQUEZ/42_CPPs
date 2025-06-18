@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 18:08:27 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/06/17 19:25:07 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/06/18 14:02:03 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ public:
 	unsigned int	shortestSpan(void) const;
 	unsigned int	longestSpan(void) const;
 	template <typename iT>
-	void			fillVec(iT first, iT last)
+	void			fillVecSpan(iT first, iT last)
 	{
 		size_t count = std::distance(first, last);
 		if (_vec.size() + count > _vec_N_capacity)
