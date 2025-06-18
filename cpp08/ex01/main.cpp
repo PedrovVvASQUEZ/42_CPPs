@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 18:08:30 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/06/18 17:57:24 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/06/18 18:01:12 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int main()
 {
+	srand(time(NULL));
 	std::cout << "||========== Subject Tests =========||" << std::endl;
 	{
 		Span sp = Span(5);
@@ -30,7 +31,6 @@ int main()
 	}
 	std::cout << "||===== Tests with iterators range =====||" << std::endl;
 	{
-		srand(time(NULL));
 		Span sp = Span(10000);
 		std::vector<int>	vec;
 		for (unsigned int i = 0; i < 10000; i++)
@@ -49,7 +49,6 @@ int main()
 	}
 	std::cout << "||=== Other Tests with iterators range ===||" << std::endl;
 	{
-		srand(time(NULL));
 		Span sp = Span(10000);
 		std::vector<int>	vec;
 		for (unsigned int i = 0; i < 10000; i++)
@@ -69,12 +68,11 @@ int main()
 			std::cout << e.what() << std::endl;
 		}
 	}
-	std::cout << "||======= Tests with max capacity ========|| << std::endl" << std::endl;
+	std::cout << "||======= Tests with huuuge capacity ========|| << std::endl" << std::endl;
 	{
-		srand(time(NULL));
-		Span sp = Span(100000);
+		Span sp = Span(1000000);
 		std::vector<int>	vec;
-		for (unsigned int i = 0; i < 100000; i++)
+		for (unsigned int i = 0; i < 1000000; i++)
 			vec.push_back(std::rand());
 		try
 		{
