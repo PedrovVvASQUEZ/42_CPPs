@@ -10,13 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Span
+NAME = Mutant
 COMP = c++
 FLAGS = -std=c++98 -Wall -Werror -Wextra
 RM = rm -rf
 
-SRCS =	Span.cpp\
-		main.cpp\
+SRCS =	main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
