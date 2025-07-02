@@ -6,7 +6,7 @@
 #    By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/05 15:25:57 by pgrellie          #+#    #+#              #
-#    Updated: 2025/06/11 15:47:23 by pgrellie         ###   ########.fr        #
+#    Updated: 2025/07/02 18:40:38 by pgrellie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(COMP) $(FLAGS) $(OBJS) -o $(NAME)
 
-%o: %cpp
-	$(NAME) $(FLAGS) -c $< -o $@
+%.o: %.cpp
+	$(COMP) $(FLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJS)
