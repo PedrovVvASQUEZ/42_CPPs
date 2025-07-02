@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 15:04:52 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/06/02 16:53:04 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/07/02 18:21:59 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@
 
 //======================= Member functions ========================//
 
-uintptr_t	Serializer::serialize(Data *ptr)
+unsigned long	Serializer::serialize(Data *ptr)
 {
-	return (reinterpret_cast<uintptr_t>(ptr));
+	return (reinterpret_cast<unsigned long>(ptr));
 }
 
-Data		*Serializer::deserialize(uintptr_t raw)
+Data			*Serializer::deserialize(unsigned long raw)
 {
 	return (reinterpret_cast<Data *>(raw));
 }

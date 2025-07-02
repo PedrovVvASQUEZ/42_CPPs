@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScarlarConverter.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 16:55:17 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/05/30 14:52:05 by codespace        ###   ########.fr       */
+/*   Updated: 2025/07/02 17:34:23 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ bool	ScarlarConverter::isInt(const std::string &bits)
 	char	*endPtr;
 	long	val;
 
-	val = std::strtol(bits.c_str(), &endPtr,10);
+	val = std::strtol(bits.c_str(), &endPtr, 10);
 	return (*endPtr == '\0' && val <= std::numeric_limits<int>::max() &&
 			val >= std::numeric_limits<int>::min());
 }
@@ -62,14 +62,23 @@ bool	ScarlarConverter::isFloat(const std::string &bits)
 {
 	if (bits == "nanf" || bits == "+inff" || bits == "-inff")
 		return (true);
-	return (bits[bits.length() - 1] == 'f');
+	if (bits.empty() || bits[bits.length() - 1] != 'f')
+		return (false);
+	std::string	strnof = bits.substr(0, bits.length() - 1);
+	char		*endPtr;
+	if (strnof.empty() == true)
+		return (false);
+	std::strtof(strnof.c_str(), &endPtr);
+	return (*endPtr == '\0');
 }
 
 bool	ScarlarConverter::isDouble(const std::string &bits)
 {
 	if (bits == "nan" || bits == "+inf" || bits == "-inf")
 		return (true);
-	return (bits.find('.') != std::string::npos);
+	char	*endPtr;
+	std::strtod(bits.c_str(), &endPtr);
+	return (*endPtr == '\0' && bits.find('.') != std::string::npos);
 }
 
 void	ScarlarConverter::convertToChar(const std::string &bits)
@@ -77,14 +86,20 @@ void	ScarlarConverter::convertToChar(const std::string &bits)
 	try
 	{
 		int value;
-		if (isChar(bits))
-			value = bits[0];
+		if (bits == "nan" || bits == "nanf" || bits == "+inf"
+				|| bits == "+inff" || bits == "-inf" || bits == "-inff")
+		{
+			std::cout << "char: impossible" << std::endl;
+			return;
+		}
+		else if (isChar(bits))
+			value = static_cast<int>(bits[0]);
 		else if (isInt(bits))
-			value = std::stoi(bits);
+			value = std::strtol(bits.c_str(), NULL, 10);
 		else if (isFloat(bits))
-			value = static_cast<int>(std::stof(bits));
+			value = static_cast<int>(std::strtof(bits.c_str(), NULL));
 		else if (isDouble(bits))
-			value = static_cast<int>(std::stod(bits));
+			value = static_cast<int>(std::strtod(bits.c_str(), NULL));
 		else
 		{
 			std::cout << "char: impossible" << std::endl;
@@ -99,7 +114,7 @@ void	ScarlarConverter::convertToChar(const std::string &bits)
 	}
 	catch (...)
 	{
-		std::cout << "char: impossible" << std::endl;
+		std::cerr << "char: impossible" << std::endl;
 	}
 }
 
@@ -108,20 +123,26 @@ void	ScarlarConverter::convertToInt(const std::string &bits)
 	try
 	{
 		int value;
-		if (isChar(bits))
-			value = bits[0];
+		if (bits == "nan" || bits == "nanf" || bits == "+inf"
+				|| bits == "+inff" || bits == "-inf" || bits == "-inff")
+		{
+			std::cout << "int: impossible" << std::endl;
+			return;
+		}
+		else if (isChar(bits))
+			value = static_cast<int>(bits[0]);
 		else if (isInt(bits))
-			value = std::stoi(bits);
+			value = std::strtol(bits.c_str(), NULL, 10);
 		else if (isFloat(bits))
 		{
-			float f = std::stof(bits);
+			float f = std::strtof(bits.c_str(), NULL);
 			if (f > std::numeric_limits<int>::max() || f < std::numeric_limits<int>::min())
 				throw std::out_of_range("overflow");
 			value = static_cast<int>(f);
 		}
 		else if (isDouble(bits))
 		{
-			double d = std::stod(bits);
+			double d = std::strtod(bits.c_str(), NULL);
 			if (d > std::numeric_limits<int>::max() || d < std::numeric_limits<int>::min())
 				throw std::out_of_range("overflow");
 			value = static_cast<int>(d);
@@ -135,7 +156,7 @@ void	ScarlarConverter::convertToInt(const std::string &bits)
 	}
 	catch (...)
 	{
-		std::cout << "int: impossible" << std::endl;
+		std::cerr << "int: impossible" << std::endl;
 	}
 }
 
@@ -145,16 +166,16 @@ void	ScarlarConverter::convertToFloat(const std::string &bits)
 	{
 		float value;
 		if (isChar(bits))
-			value = bits.length() == 1 ? bits[0] : bits[1];
+			value = static_cast<float>(bits[0]);
 		else if (isInt(bits))
-			value = static_cast<float>(std::stoi(bits));
+			value = static_cast<float>(std::strtol(bits.c_str(), NULL, 10));
 		else if (isFloat(bits))
-			value = std::stof(bits);
+			value = std::strtof(bits.c_str(), NULL);
 		else if (isDouble(bits))
-			value = static_cast<float>(std::stod(bits));
+			value = static_cast<float>(std::strtod(bits.c_str(), NULL));
 		else
 		{
-			std::cout << "float: impossible" << std::endl;
+			std::cerr << "float: impossible" << std::endl;
 			return;
 		}
 		if (bits == "nan" || bits == "nanf")
@@ -173,7 +194,7 @@ void	ScarlarConverter::convertToFloat(const std::string &bits)
 	}
 	catch (...)
 	{
-		std::cout << "float: impossible" << std::endl;
+		std::cerr << "float: impossible" << std::endl;
 	}
 }
 
@@ -183,13 +204,13 @@ void	ScarlarConverter::convertToDouble(const std::string &bits)
 	{
 		double value;
 		if (isChar(bits))
-			value = bits.length() == 1 ? bits[0] : bits[1];
+			value = static_cast<double>(bits[0]);
 		else if (isInt(bits))
-			value = static_cast<double>(std::stoi(bits));
+			value = static_cast<double>(std::strtol(bits.c_str(), NULL, 10));
 		else if (isFloat(bits))
-			value = static_cast<double>(std::stof(bits));
+			value = static_cast<double>(std::strtof(bits.c_str(), NULL));
 		else if (isDouble(bits))
-			value = std::stod(bits);
+			value = std::strtod(bits.c_str(), NULL);
 		else 
 		{
 			std::cout << "double: impossible" << std::endl;
@@ -211,7 +232,7 @@ void	ScarlarConverter::convertToDouble(const std::string &bits)
 	}
 	catch (...)
 	{
-		std::cout << "double: impossible" << std::endl;
+		std::cerr << "double: impossible" << std::endl;
 	}
 }
 

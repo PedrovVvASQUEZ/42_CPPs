@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -19,6 +20,7 @@
 # include <cmath>
 # include <cctype>
 # include <cstdlib>
+# include <stdexcept>
 
 
 class	ScarlarConverter{

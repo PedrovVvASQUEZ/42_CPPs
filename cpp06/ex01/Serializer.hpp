@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 15:04:50 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/06/03 15:20:34 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/07/02 18:21:55 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <string>
 # include <iostream>
-# include <cstdint>
 
 struct Data
 {
@@ -27,8 +26,8 @@ class	Serializer{
 
 public:
 
-	static uintptr_t	serialize(Data *ptr);
-	static Data			*deserialize(uintptr_t raw);
+	static unsigned long	serialize(Data *ptr);
+	static Data				*deserialize(unsigned long raw);
 
 private:
 

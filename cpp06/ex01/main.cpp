@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/02 15:04:54 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/06/03 16:18:41 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/07/02 18:24:54 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(void)
 	std::cout << ogptr->value << std::endl;
 	std::cout << ogptr->str << std::endl;
 	
-	uintptr_t	serialized = Serializer::serialize(ogptr);
+	unsigned long	serialized = Serializer::serialize(ogptr);
 
 	std::cout << "Serial int: " << serialized << std::endl;
 
