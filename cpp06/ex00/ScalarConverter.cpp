@@ -1,54 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScarlarConverter.cpp                               :+:      :+:    :+:   */
+/*   ScalarConverter.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 16:55:17 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/07/02 17:34:23 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/07/07 15:37:30 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScarlarConverter.hpp"
+#include "ScalarConverter.hpp"
 
-// //==================== Contructors N Destructor ===================//
-
-// ScarlarConverter::ScarlarConverter(void)
-// {
-// 	return ;
-// }
-
-// ScarlarConverter::ScarlarConverter(const ScarlarConverter &rhs)
-// {
-// 	(void)rhs;
-// 	return ;
-// }
-
-// ScarlarConverter::~ScarlarConverter(void)
-// {
-// 	return ;
-// }
-
-// //=============== Operators Overload Member Functions =============//
-
-// ScarlarConverter	&ScarlarConverter::operator=(const ScarlarConverter &rhs)
-// {
-// 	(void)rhs;
-// 	return (*this);
-// }
-
-//======================= Member functions ========================//
-
-
-bool	ScarlarConverter::isChar(const std::string &bits)
+bool	ScalarConverter::isChar(const std::string &bits)
 {
 	if (bits.length() == 1 && !std::isdigit(bits[0]))
 		return (true);
 	return (false);
 }
 
-bool	ScarlarConverter::isInt(const std::string &bits)
+bool	ScalarConverter::isInt(const std::string &bits)
 {
 	char	*endPtr;
 	long	val;
@@ -58,7 +29,7 @@ bool	ScarlarConverter::isInt(const std::string &bits)
 			val >= std::numeric_limits<int>::min());
 }
 
-bool	ScarlarConverter::isFloat(const std::string &bits)
+bool	ScalarConverter::isFloat(const std::string &bits)
 {
 	if (bits == "nanf" || bits == "+inff" || bits == "-inff")
 		return (true);
@@ -72,7 +43,7 @@ bool	ScarlarConverter::isFloat(const std::string &bits)
 	return (*endPtr == '\0');
 }
 
-bool	ScarlarConverter::isDouble(const std::string &bits)
+bool	ScalarConverter::isDouble(const std::string &bits)
 {
 	if (bits == "nan" || bits == "+inf" || bits == "-inf")
 		return (true);
@@ -81,7 +52,7 @@ bool	ScarlarConverter::isDouble(const std::string &bits)
 	return (*endPtr == '\0' && bits.find('.') != std::string::npos);
 }
 
-void	ScarlarConverter::convertToChar(const std::string &bits)
+void	ScalarConverter::convertToChar(const std::string &bits)
 {
 	try
 	{
@@ -118,7 +89,7 @@ void	ScarlarConverter::convertToChar(const std::string &bits)
 	}
 }
 
-void	ScarlarConverter::convertToInt(const std::string &bits)
+void	ScalarConverter::convertToInt(const std::string &bits)
 {
 	try
 	{
@@ -160,7 +131,7 @@ void	ScarlarConverter::convertToInt(const std::string &bits)
 	}
 }
 
-void	ScarlarConverter::convertToFloat(const std::string &bits)
+void	ScalarConverter::convertToFloat(const std::string &bits)
 {
 	try
 	{
@@ -198,7 +169,7 @@ void	ScarlarConverter::convertToFloat(const std::string &bits)
 	}
 }
 
-void	ScarlarConverter::convertToDouble(const std::string &bits)
+void	ScalarConverter::convertToDouble(const std::string &bits)
 {
 	try
 	{
@@ -236,7 +207,7 @@ void	ScarlarConverter::convertToDouble(const std::string &bits)
 	}
 }
 
-void	ScarlarConverter::convert(const std::string &bits)
+void	ScalarConverter::convert(const std::string &bits)
 {
 	convertToChar(bits);
 	convertToInt(bits);

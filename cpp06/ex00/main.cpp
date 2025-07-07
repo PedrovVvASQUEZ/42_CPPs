@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 16:55:13 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/05/30 14:31:54 by codespace        ###   ########.fr       */
+/*   Updated: 2025/07/07 15:41:41 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScarlarConverter.hpp"
+#include "ScalarConverter.hpp"
 
 int	main(int ac, char **av)
 {
@@ -19,6 +19,6 @@ int	main(int ac, char **av)
 		std::cout << "error: bad arguments" << std::endl;
 		return (1);
 	}
-	ScarlarConverter::convert(av[1]);
+	ScalarConverter::convert(av[1]);
 	return (0);
 }

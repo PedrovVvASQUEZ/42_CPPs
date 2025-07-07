@@ -2,7 +2,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScarlarConverter.hpp                               :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,8 +11,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCARLARCONVERTER_HPP
-# define SCARLARCONVERTER_HPP
+#ifndef SCALARCONVERTER_HPP
+# define SCALARCONVERTER_HPP
 
 # include <string>
 # include <limits>
@@ -23,7 +23,7 @@
 # include <stdexcept>
 
 
-class	ScarlarConverter{
+class	ScalarConverter{
 
 public:
 
@@ -31,11 +31,11 @@ public:
 
 private:
 
-	ScarlarConverter(void);
-	ScarlarConverter(const ScarlarConverter &rhs);
-	~ScarlarConverter(void);
+	ScalarConverter(void);
+	ScalarConverter(const ScalarConverter &rhs);
+	~ScalarConverter(void);
 
-	ScarlarConverter &operator=(const ScarlarConverter &rhs);
+	ScalarConverter &operator=(const ScalarConverter &rhs);
 
 	static bool	isChar(const std::string &bits);
 	static bool	isInt(const std::string &bits);

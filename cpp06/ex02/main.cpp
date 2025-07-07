@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/03 16:23:51 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/06/05 13:58:58 by codespace        ###   ########.fr       */
+/*   Updated: 2025/07/07 17:51:50 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int main(void)
 	identify(p);
 	std::cout << "Reference based identificaiton: ";
 	identify(*p);
+	delete (p);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/05 15:25:57 by pgrellie          #+#    #+#              #
-#    Updated: 2025/07/02 17:10:39 by pgrellie         ###   ########.fr        #
+#    Updated: 2025/07/07 15:39:34 by pgrellie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ COMP = c++
 FLAGS = -std=c++98 -Wall -Werror -Wextra
 RM = rm -rf
 
-SRCS = ScarlarConverter.cpp\
+SRCS = ScalarConverter.cpp\
 		main.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
