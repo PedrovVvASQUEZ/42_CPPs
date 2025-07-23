@@ -6,8 +6,9 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 16:35:30 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/07/11 16:42:13 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/07/17 10:54:49 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
