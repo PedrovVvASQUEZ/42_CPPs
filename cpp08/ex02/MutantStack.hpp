@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 14:41:56 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/06/24 19:13:25 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/08/06 15:44:46 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ public :
 
 	const_reverse_iterator	rbegin(void) const
 	{
-		return (this->rbegin());
+		return (this->c.rbegin());
 	}
 
 	const_reverse_iterator	rend(void) const

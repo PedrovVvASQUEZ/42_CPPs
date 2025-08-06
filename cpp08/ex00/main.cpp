@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 17:51:36 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/06/13 17:27:06 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/07/31 16:22:25 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	main(void)
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
-		
 	}
 	
 	try
