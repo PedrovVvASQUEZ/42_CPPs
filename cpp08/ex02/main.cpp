@@ -6,7 +6,7 @@
 /*   By: pgrellie <pgrellie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 14:41:59 by pgrellie          #+#    #+#             */
-/*   Updated: 2025/08/06 15:47:17 by pgrellie         ###   ########.fr       */
+/*   Updated: 2025/08/07 17:14:14 by pgrellie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int main()
 		mstack.push(5);
 		mstack.push(737);
 		mstack.push(0);
-		MutantStack<int>::iterator it = mstack.begin();
-		MutantStack<int>::iterator ite = mstack.end();
+		MutantStack<int>::const_reverse_iterator it = mstack.rbegin();
+		MutantStack<int>::const_reverse_iterator ite = mstack.rend();
 		++it;
 		--it;
 		while (it != ite)
@@ -51,8 +51,8 @@ int main()
 		mstack.push_back(5);
 		mstack.push_back(737);
 		mstack.push_back(0);
-		std::list<int>::iterator it = mstack.begin();
-		std::list<int>::iterator ite = mstack.end();
+		std::list<int>::const_reverse_iterator it = mstack.rbegin();
+		std::list<int>::const_reverse_iterator ite = mstack.rend();
 		++it;
 		--it;
 		while (it != ite)
