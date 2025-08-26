@@ -37,9 +37,8 @@ int	main(void)
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
-		
 	}
-	
+
 	try
 	{
 		std::vector<int>::iterator	itv = ::easyfind(vec, 546);
