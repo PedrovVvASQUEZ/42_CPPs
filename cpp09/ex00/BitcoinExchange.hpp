@@ -20,6 +20,7 @@
 # include <algorithm>
 # include <sstream>
 # include <iomanip>
+# include <stdexcept>
 
 class BitcoinExchange{
 
