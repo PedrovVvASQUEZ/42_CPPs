@@ -17,13 +17,19 @@
 # include <map>
 # include <fstream>
 # include <string>
+# include <algorithm>
+# include <sstream>
+# include <iomanip>
 
 class BitcoinExchange{
 
 public:
 
 	BitcoinExchange(void);
+	BitcoinExchange(const BitcoinExchange &rhs);
 	~BitcoinExchange(void);
+
+	BitcoinExchange	&operator=(const BitcoinExchange &rhs);
 
 	void	processFile(const std::string &filename);
 
