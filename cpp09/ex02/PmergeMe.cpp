@@ -51,9 +51,9 @@ double	PmergeMe::getTimeDifference(struct timeval start, struct timeval end)
 
 void	PmergeMe::parseArgs(int ac, char **av)
 {
-	for (int i = 0; i < ac; i++)
+	for (int i = 1; i < ac; i++)
 	{
-		std::string	arg(av[1]);
+		std::string	arg(av[i]);
 		if (!isValidIntpos(arg))
 			throw std::runtime_error("Error");
 		int	num = std::atoi(arg.c_str());
@@ -76,143 +76,139 @@ void	PmergeMe::displaySequence(const std::vector<int> &container, const std::str
 
 // //==================== Ford-Johnson for Vector ===================//
 
-// void PmergeMe::insertionSortVector(std::vector<int>& container, int left, int right)
-// {
-// 	for (int i = left + 1; i <= right; i++)
-// 	{
-// 		int key = container[i];
-// 		int j = i - 1;
-		
-// 		while (j >= left && container[j] > key)
-// 		{
-// 			container[j + 1] = container[j];
-// 			j--;
-// 		}
-// 		container[j + 1] = key;
-// 	}
-// }
+void	PmergeMe::insertionSortVector(std::vector<int> &container, int left, int right)
+{
+	for (int i = left + 1; i <= right; i++)
+	{
+		int	key = container[i];
+		int	j = i - 1;
+		while (j >= left && container[j] > key)
+		{
+			container[j + 1] = container[j];
+			j--;
+		}
+		container[j + 1] = key;
+	}
+}
 
-// void PmergeMe::mergeInsertVector(std::vector<int>& container, int left, int right)
-// {
-// 	if (right - left < 10)
-// 	{
-// 		insertionSortVector(container, left, right);
-// 		return;
-// 	}
-		
-// 	int mid = left + (right - left) / 2;
-// 	mergeInsertVector(container, left, mid);
-// 	mergeInsertVector(container, mid + 1, right);
-		
-// 	// Merge
-// 	std::vector<int> temp(right - left + 1);
-// 	int i = left, j = mid + 1, k = 0;
-		
-// 	while (i <= mid && j <= right)
-// 	{
-// 		if (container[i] <= container[j])
-// 			temp[k++] = container[i++];
-// 		else
-// 			temp[k++] = container[j++];
-// 	}
-		
-// 	while (i <= mid)
-// 		temp[k++] = container[i++];
-// 	while (j <= right)
-// 		temp[k++] = container[j++];
-		
-// 	for (int i = 0; i < k; i++)
-// 		container[left + i] = temp[i];
-// }
+void	PmergeMe::mergeInsertVector(std::vector<int> &container, int left, int right)
+{
+	if (right - left < 10)
+	{
+		insertionSortVector(container, left, right);
+		return ;
+	}
+	int	mid = left + (right - left) / 2;
+	mergeInsertVector(container, left, mid);
+	mergeInsertVector(container, mid + 1, right);
+	std::vector<int>	temp(right - left + 1);
+	int	i = left;
+	int	j = mid + 1;
+	int	k = 0;
+	while (i <= mid && j <= right)
+	{
+		if (container[i] <= container[j])
+			temp[k++] = container[i++];
+		else
+			temp[k++] = container[j++];
+	}
+	while (i <= mid)
+		temp[k++] = container[i++];
+	while (j <= right)
+		temp[k++] = container[j++];
+	for (int i = 0; i < k; i++)
+		container[left + i] = temp[i];
+}
 
-// void PmergeMe::fordJohnsonSort(std::vector<int>& container)
-// {
-// 	if (container.size() <= 1)
-// 		return;
-// 	mergeInsertVector(container, 0, container.size() - 1);
-// }
+void	PmergeMe::fordJohnsonSort(std::vector<int> &container)
+{
+	if (container.size() <= 1)
+		return ;
+	mergeInsertVector(container, 0, container.size() - 1);
+}
 
 // //==================== Ford-Johnson for Deque ===================//
 
-// void PmergeMe::insertionSortDeque(std::deque<int>& container, int left, int right)
-// {
-// 	for (int i = left + 1; i <= right; i++)
-// 	{
-// 		int key = container[i];
-// 		int j = i - 1;
+void PmergeMe::insertionSortDeque(std::deque<int>& container, int left, int right)
+{
+	for (int i = left + 1; i <= right; i++)
+	{
+		int key = container[i];
+		int j = i - 1;
 		
-// 		while (j >= left && container[j] > key)
-// 		{
-// 			container[j + 1] = container[j];
-// 			j--;
-// 		}
-// 		container[j + 1] = key;
-// 	}
-// }
+		while (j >= left && container[j] > key)
+		{
+			container[j + 1] = container[j];
+			j--;
+		}
+		container[j + 1] = key;
+	}
+}
 
-// void PmergeMe::mergeInsertDeque(std::deque<int>& container, int left, int right)
-// {
-// 	if (right - left < 10)
-// 	{
-// 		insertionSortDeque(container, left, right);
-// 		return;
-// 	}
-// 	int mid = left + (right - left) / 2;
-// 	mergeInsertDeque(container, left, mid);
-// 	mergeInsertDeque(container, mid + 1, right);
-// 	// Merge
-// 	std::deque<int> temp;
-// 	int i = left, j = mid + 1;
-// 	while (i <= mid && j <= right)
-// 	{
-// 		if (container[i] <= container[j])
-// 			temp.push_back(container[i++]);
-// 		else
-// 			temp.push_back(container[j++]);
-// 	}
-// 	while (i <= mid)
-// 		temp.push_back(container[i++]);
-// 	while (j <= right)
-// 		temp.push_back(container[j++]);
-// 	for (size_t k = 0; k < temp.size(); k++)
-// 		container[left + k] = temp[k];
-// }
+void PmergeMe::mergeInsertDeque(std::deque<int>& container, int left, int right)
+{
+	if (right - left < 10)
+	{
+		insertionSortDeque(container, left, right);
+		return;
+	}
+	int mid = left + (right - left) / 2;
+	mergeInsertDeque(container, left, mid);
+	mergeInsertDeque(container, mid + 1, right);
+	// Merge
+	std::deque<int>	temp;
+	int	i = left;
+	int	j = mid + 1;
+	while (i <= mid && j <= right)
+	{
+		if (container[i] <= container[j])
+			temp.push_back(container[i++]);
+		else
+			temp.push_back(container[j++]);
+	}
+	while (i <= mid)
+		temp.push_back(container[i++]);
+	while (j <= right)
+		temp.push_back(container[j++]);
+	for (size_t k = 0; k < temp.size(); k++)
+		container[left + k] = temp[k];
+}
 
-// void PmergeMe::fordJohnsonSort(std::deque<int>& container)
-// {
-// 	if (container.size() <= 1)
-// 		return;
-// 	mergeInsertDeque(container, 0, container.size() - 1);
-// }
+void PmergeMe::fordJohnsonSort(std::deque<int>& container)
+{
+	if (container.size() <= 1)
+		return;
+	mergeInsertDeque(container, 0, container.size() - 1);
+}
 
 // //==================== Public Methods ===================//
 
-// void PmergeMe::execute(int argc, char** argv)
-// {
-// 	parseArgs(argc, argv);
+void PmergeMe::execute(int argc, char** argv)
+{
+	parseArgs(argc, argv);
 
-// 	// Display before sorting
-// 	displaySequence(_vectorData, "Before: ");
+	// Display before sorting
+	displaySequence(_vectorData, "Before: ");
 
-// 	// Sort with vector and measure time
-// 	struct timeval start, end;
-// 	gettimeofday(&start, NULL);
-// 	fordJohnsonSort(_vectorData);
-// 	gettimeofday(&end, NULL);
-// 	double vectorTime = getTimeDifference(start, end);
+	// Sort with vector and measure time
+	struct timeval start, end;
+	gettimeofday(&start, NULL);
+	fordJohnsonSort(_vectorData);
+	gettimeofday(&end, NULL);
+	double vectorTime = getTimeDifference(start, end);
 
-// 	// Sort with deque and measure time
-// 	gettimeofday(&start, NULL);
-// 	fordJohnsonSort(_dequeData);
-// 	gettimeofday(&end, NULL);
-// 	double dequeTime = getTimeDifference(start, end);
+	// Sort with deque and measure time
+	gettimeofday(&start, NULL);
+	fordJohnsonSort(_dequeData);
+	gettimeofday(&end, NULL);
+	double dequeTime = getTimeDifference(start, end);
 
-// 	// Display after sorting
-// 	displaySequence(_vectorData, "After:  ");
+	// Display after sorting
+	displaySequence(_vectorData, "After:  ");
 
-// 	// Display timing information
-// 	std::cout << "Time to process a range of " << _vectorData.size() 
-// 			  << " elements with std::vector : " << vectorTime << " us" << std::endl;
-// 	std::cout << "Time to process a range of " << _dequeData.size() 
-// 			  << " elements with std::deque  : " << dequeTime << " us" << std::endl;
-// }
+	// Display timing information
+	std::cout << "Time to process a range of " << _vectorData.size() 
+			  << " elements with std::vector : " << vectorTime << " us" << std::endl;
+	std::cout << "Time to process a range of " << _dequeData.size() 
+			  << " elements with std::deque  : " << dequeTime << " us" << std::endl;
+}
