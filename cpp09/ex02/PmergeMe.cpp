@@ -185,28 +185,23 @@ void PmergeMe::fordJohnsonSort(std::deque<int>& container)
 
 void PmergeMe::execute(int argc, char** argv)
 {
+	struct timeval	start;
+	struct timeval	end;
+
+	/***  Vector  ***/
 	parseArgs(argc, argv);
-
-	// Display before sorting
 	displaySequence(_vectorData, "Before: ");
-
-	// Sort with vector and measure time
-	struct timeval start, end;
 	gettimeofday(&start, NULL);
 	fordJohnsonSort(_vectorData);
 	gettimeofday(&end, NULL);
 	double vectorTime = getTimeDifference(start, end);
 
-	// Sort with deque and measure time
+	/***  Deque  ***/
 	gettimeofday(&start, NULL);
 	fordJohnsonSort(_dequeData);
 	gettimeofday(&end, NULL);
 	double dequeTime = getTimeDifference(start, end);
-
-	// Display after sorting
 	displaySequence(_vectorData, "After:  ");
-
-	// Display timing information
 	std::cout << "Time to process a range of " << _vectorData.size() 
 			  << " elements with std::vector : " << vectorTime << " us" << std::endl;
 	std::cout << "Time to process a range of " << _dequeData.size() 
