@@ -43,23 +43,22 @@ BitcoinExchange	&BitcoinExchange::operator=(const BitcoinExchange &rhs)
 
 //======================= Member functions ========================//
 
-bool	BitcoinExchange::isValidDate(const std::string &date) const
+void	BitcoinExchange::isValidDate(const std::string &date) const
 {
 	if (date.length() != 10)
-		return (false);
+		throw std::runtime_error("Error: bad input => " + date);
 	if (date[4] != '-' || date[7] != '-')
-		return (false);
+		throw std::runtime_error("Error: bad input => " + date);
 	for (size_t i = 0; i < date.length(); i++)
 	{
 		if (i == 4 || i == 7)
 			continue;
 		if (!isdigit(date[i]))
-			return (false);
+			throw std::runtime_error("Error: bad input => " + date);
 	}
-	return (true);
 }
 
-bool	BitcoinExchange::isValidPrice(float value) const
+bool	BitcoinExchange::isValidValue(const float value) const
 {
 	if (value < 0)
 	{
@@ -84,14 +83,13 @@ std::string	BitcoinExchange::closestDate(const std::string &date) const
 	return (it->first);
 }
 
-float	BitcoinExchange::parsePrice(const std::string &priceStr) const
+float	BitcoinExchange::makeValueFloat(const std::string &priceStr) const
 {
 	char *end;
 	float price = strtof(priceStr.c_str(), &end);
 
 	if (end == priceStr.c_str() || (*end != '\0' && *end != '\n'))
 		throw std::runtime_error("Error: invalid number");
-		
 	return (price);
 }
 
@@ -100,7 +98,7 @@ void	BitcoinExchange::dlBtcChart(const std::string &filename)
 	std::ifstream	infile(filename.c_str());
 
 	if (!infile.is_open())
-		throw std::runtime_error("Error: couldn't open wanted file");
+		throw std::runtime_error("Error: couldn't open Data Base");
 	std::string	line;
 	std::getline(infile, line);
 	while (std::getline(infile, line))
@@ -126,21 +124,17 @@ void	BitcoinExchange::processInputLine(const std::string &line)
 		return ;
 	}
 	std::string date = line.substr(0, pos);
-	std::string priceStr = line.substr(pos + 3);
-	if (isValidDate(date) == false)
-	{
-		std::cerr << "Error: bad input => " << date << std::endl;
-		return ;
-	}
+	std::string value = line.substr(pos + 3);
 	try
 	{
-		float	price = parsePrice(priceStr);
-		if (isValidPrice(price) == false)
+		isValidDate(date);
+		float	fvalue = makeValueFloat(value);
+		if (isValidValue(fvalue) == false)
 			return ;
 		std::string	theDate = closestDate(date);
 		float		thePrice = _btc_chart[theDate];
-		float		result = price * thePrice;
-		std::cout << date << " => " << price << " = " << result << std::endl;
+		float		result = fvalue * thePrice;
+		std::cout << date << " => " << fvalue << " = " << result << std::endl;
 	}
 	catch (const std::exception &e)
 	{

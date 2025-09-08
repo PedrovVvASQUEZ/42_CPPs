@@ -38,9 +38,9 @@ private:
 
 	std::map<std::string, float> _btc_chart;
 
-	bool		isValidDate(const std::string &date) const;
-	bool		isValidPrice(const float price) const;
-	float		parsePrice(const std::string &btc_chart) const;
+	void		isValidDate(const std::string &date) const;
+	bool		isValidValue(const float value) const;
+	float		makeValueFloat(const std::string &btc_chart) const;
 	std::string	closestDate(const std::string &date) const;
 	void		dlBtcChart(const std::string &filename);
 	void		processInputLine(const std::string &line);
