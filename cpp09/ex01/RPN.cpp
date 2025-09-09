@@ -68,15 +68,17 @@ int		RPN::polish(const std::string &input)
 		else if (tok.length() == 1 && isOperator(tok[0]))
 		{
 			if (_stack.size() < 2)
-				throw std::runtime_error("Error: insufficient operands");
-			int	b = _stack.top(); _stack.pop();
-			int	a = _stack.top(); _stack.pop();
+				throw std::runtime_error("Error: Not enough numbers in stack");
+			int	b = _stack.top();
+			_stack.pop();
+			int	a = _stack.top();
+			_stack.pop();
 			int	result = operation(a, b, tok[0]);
 			_stack.push(result);
 		}
 		else
 			throw	std::runtime_error("Error: invalid token");
-		}
+	}
 	if (_stack.size() != 1)
 		throw std::runtime_error("Error: invalid input");
 	return (_stack.top());
