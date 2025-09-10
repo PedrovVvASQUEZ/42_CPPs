@@ -36,10 +36,11 @@ private:
 	void	mergeInsertDeque(std::deque<int> &container, int left, int right);
 	void	insertionSortDeque(std::deque<int> &container, int left, int right);
 
-	bool	isValidIntpos(const std::string &str);
+	bool	isValidPositiveInt(const std::string &str);
 	double	getTimeDifference(struct timeval start, struct timeval end);
 	void	parseArgs(int ac, char **av);
-	void	displaySequence(const std::vector<int> &container, const std::string &label);
+	void	displaySequence(const std::vector<int> &container, const std::string &label) const;
+	void	displayFullSequence(const std::vector<int> &container, const std::string &label) const;
 };
 
 #endif

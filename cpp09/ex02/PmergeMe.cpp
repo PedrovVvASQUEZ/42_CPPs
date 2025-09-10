@@ -31,7 +31,7 @@ PmergeMe	&PmergeMe::operator=(const PmergeMe &rhs)
 
 //======================= Member functions ========================//
 
-bool	PmergeMe::isValidIntpos(const std::string &str)
+bool	PmergeMe::isValidPositiveInt(const std::string &str)
 {
 	if (str.empty())
 		return (false);
@@ -54,7 +54,7 @@ void	PmergeMe::parseArgs(int ac, char **av)
 	for (int i = 1; i < ac; i++)
 	{
 		std::string	arg(av[i]);
-		if (!isValidIntpos(arg))
+		if (!isValidPositiveInt(arg))
 			throw std::runtime_error("Error");
 		int	num = std::atoi(arg.c_str());
 		_vectorData.push_back(num);
@@ -64,13 +64,21 @@ void	PmergeMe::parseArgs(int ac, char **av)
 		throw std::runtime_error("Error");
 }
 
-void	PmergeMe::displaySequence(const std::vector<int> &container, const std::string &label)
+void	PmergeMe::displaySequence(const std::vector<int> &container, const std::string &label) const
 {
 	std::cout << label;
 	for (size_t i = 0; i < container.size() && i < 4; i++)
 		std::cout << container[i] << " ";
 	if (container.size() > 4)
 		std::cout << "[...]";
+	std::cout << std::endl;
+}
+
+void	PmergeMe::displayFullSequence(const std::vector<int> &container, const std::string &label) const
+{
+	std::cout << label;
+	for (size_t i = 0; i < container.size(); i++)
+		std::cout << container[i] << " ";
 	std::cout << std::endl;
 }
 
@@ -205,5 +213,6 @@ void PmergeMe::execute(int argc, char** argv)
 	std::cout << "Time to process a range of " << _vectorData.size() 
 			  << " elements with std::vector : " << vectorTime << " us" << std::endl;
 	std::cout << "Time to process a range of " << _dequeData.size() 
-			  << " elements with std::deque  : " << dequeTime << " us" << std::endl;
+			  << " elements with std::deque  : " << dequeTime << " us" << std::endl << std::endl;
+	displayFullSequence(_vectorData, "Full Sequence:  ");
 }
