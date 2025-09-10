@@ -10,6 +10,7 @@
 # include <algorithm>
 # include <stdexcept>
 # include <limits>
+# include <iomanip>
 
 class	PmergeMe{
 
@@ -26,7 +27,7 @@ public:
 private:
 
 	std::vector<int>	_vectorData;
-	std::vector<int>	_dequeData;
+	std::deque<int>		_dequeData;
 
 	void	fordJohnsonSort(std::vector<int> &container);
 	void	mergeInsertVector(std::vector<int> &container, int left, int right);

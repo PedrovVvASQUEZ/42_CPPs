@@ -109,23 +109,23 @@ void	PmergeMe::mergeInsertVector(std::vector<int> &container, int left, int righ
 	int	mid = left + (right - left) / 2;
 	mergeInsertVector(container, left, mid);
 	mergeInsertVector(container, mid + 1, right);
-	std::vector<int>	temp(right - left + 1);
+	std::vector<int>	temp;
+	temp.reserve(right - left + 1);
 	int	i = left;
 	int	j = mid + 1;
-	int	k = 0;
 	while (i <= mid && j <= right)
 	{
 		if (container[i] <= container[j])
-			temp[k++] = container[i++];
+			temp.push_back(container[i++]);
 		else
-			temp[k++] = container[j++];
+			temp.push_back(container[j++]);
 	}
 	while (i <= mid)
-		temp[k++] = container[i++];
+		temp.push_back(container[i++]);
 	while (j <= right)
-		temp[k++] = container[j++];
-	for (int i = 0; i < k; i++)
-		container[left + i] = temp[i];
+		temp.push_back(container[j++]);
+	for (size_t k = 0; k < temp.size(); k++)
+		container[left + k] = temp[k];
 }
 
 void	PmergeMe::fordJohnsonSort(std::vector<int> &container)
@@ -163,7 +163,6 @@ void PmergeMe::mergeInsertDeque(std::deque<int>& container, int left, int right)
 	int mid = left + (right - left) / 2;
 	mergeInsertDeque(container, left, mid);
 	mergeInsertDeque(container, mid + 1, right);
-	// Merge
 	std::deque<int>	temp;
 	int	i = left;
 	int	j = mid + 1;
@@ -211,8 +210,10 @@ void PmergeMe::execute(int argc, char** argv)
 	double dequeTime = getTimeDifference(start, end);
 	displaySequence(_vectorData, "After:  ");
 	std::cout << "Time to process a range of " << _vectorData.size() 
-			  << " elements with std::vector : " << vectorTime << " us" << std::endl;
+			  << " elements with std::vector : " << std::fixed << std::setprecision(5)
+			  << vectorTime << " us" << std::endl;
 	std::cout << "Time to process a range of " << _dequeData.size() 
-			  << " elements with std::deque  : " << dequeTime << " us" << std::endl << std::endl;
-	displayFullSequence(_vectorData, "Full Sequence:  ");
+			  << " elements with std::deque  : " << std::fixed << std::setprecision(5)
+			  << dequeTime << " us" << std::endl << std::endl;
+//	displayFullSequence(_vectorData, "Full Sequence:  ");
 }
